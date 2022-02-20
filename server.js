@@ -23,12 +23,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-app.get('/', (req,res) => { res.send('its Working') })
+app.get('/', (req,res) => { res.send(database.users) })
 app.post('/signin' , (req,res) => { signin.handleSignin(req,res,db,bcrypt)})
 app.post('/register' , (req,res) => { register.handleRegister(req,res,db,bcrypt)})
 app.post('/profile/:id' , (req,res) => { profile.handleProfileGet(req,res,db)})
 app.put('/image' , (req,res) => { image.handleImage(req,res,db)})
 
-app.listen(process.env.PORT || 3000, () =>{
-    console.log(`app is running in port ${process.env.PORT}`)
+app.listen(3000, () =>{
+    console.log("app is running in port 3000")
 });

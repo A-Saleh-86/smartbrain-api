@@ -30,5 +30,5 @@ app.post('/profile/:id' , (req,res) => { profile.handleProfileGet(req,res,db)})
 app.put('/image' , (req,res) => { image.handleImage(req,res,db)})
 
 app.listen(process.env.PORT || 3000, () =>{
-    console.log(`app isss running in port ${process.env.PORT}`)
+    console.log(`app is running in port ${process.env.PORT}`)
 });

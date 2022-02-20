@@ -7,6 +7,7 @@ const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const  profile  = require('./controllers/profile');
 const  image  = require('./controllers/image');
+const { database } = require('pg/lib/defaults');
 
 const db = knex ({
     client: 'pg',
@@ -23,7 +24,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-app.get('/', (req,res) => { res.send("its Working") })
+app.get('/', (req,res) => { res.send(database.user) })
 app.post('/signin' , (req,res) => { signin.handleSignin(req,res,db,bcrypt)})
 app.post('/register' , (req,res) => { register.handleRegister(req,res,db,bcrypt)})
 app.post('/profile/:id' , (req,res) => { profile.handleProfileGet(req,res,db)})
